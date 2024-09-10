@@ -3,9 +3,7 @@ package br.com.etechoracio.estudos.controller;
 import br.com.etechoracio.estudos.entity.Disciplina;
 import br.com.etechoracio.estudos.service.DisciplinaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,10 @@ public class DisciplinaController {
     @GetMapping //vai rodar esse código quando der get
     public List<Disciplina> listar(){
         return service.listar();
+    }
+
+    @PostMapping
+    public Disciplina cadastrar(@RequestBody Disciplina disciplina){
+        return service.cadastrarDisciplina(disciplina);
     }
 }

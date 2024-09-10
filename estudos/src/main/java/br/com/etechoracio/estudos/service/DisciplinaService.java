@@ -13,4 +13,8 @@ public class DisciplinaService {
     public List<Disciplina> listar(){
         return repository.findAll();
     }
+
+    public Disciplina cadastrarDisciplina(Disciplina disciplina){
+        return repository.save(disciplina);
+    }
 }
