@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestController
+@RestController
 @RequestMapping("/monitores")
 public class MonitorController {
 
