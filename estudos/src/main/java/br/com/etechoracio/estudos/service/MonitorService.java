@@ -12,7 +12,20 @@ import java.util.List;
 public class MonitorService {
     @Autowired
     private MonitorRepository repository;
-    public List<Monitor> listar() {return repository.findAll();}
 
-    public Monitor cadastraMonitor(Monitor monitor){return repository.save(monitor);}
+    public List<Monitor> listar() {
+        return repository.findAll();
+    }
+
+    public Monitor cadastraMonitor(Monitor monitor) {
+        var existezap = repository.findByWhatsapp(monitor.getWhatsapp());
+        if (!existezap.isEmpty()) {
+            throw new RuntimeException("Telefone já cadastrado");
+        }
+        var existeemail = repository.findByEmail(monitor.getEmail());
+        if (!existeemail.isEmpty()) {
+            throw new RuntimeException("Email já cadastrado");
+        }
+        return repository.save(monitor);
+    }
 }

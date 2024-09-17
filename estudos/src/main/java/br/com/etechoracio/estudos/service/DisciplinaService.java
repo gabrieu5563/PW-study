@@ -15,6 +15,10 @@ public class DisciplinaService {
     }
 
     public Disciplina cadastrarDisciplina(Disciplina disciplina){
+        var existe = repository.findByNome(disciplina.getNome());
+        if (!existe.isEmpty()){
+            throw new RuntimeException("Disciplina ja cadastrada"); //exception retorna codigo 500
+        }
         return repository.save(disciplina);
     }
 }
