@@ -20,4 +20,5 @@ public class Disciplina {
 
     @Column(name = "TX_NOME", columnDefinition = "varchar")
     private String nome;
+
 }
