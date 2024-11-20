@@ -17,6 +17,6 @@ import java.util.OptionalInt;
 @Repository
 public interface ConexaoRepository extends JpaRepository<Conexao, Long> {
 
-    Optional<Monitor> findByMonitor(Optional monitor);
+    Optional<Monitor> findByMonitor(Optional<Monitor> monitor);
 
 }
